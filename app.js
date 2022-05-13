@@ -1,39 +1,50 @@
 //create fetch statements for:
-  //meal by name
-  //by main ingredient
-  //random
+//meal by name
+//by main ingredient
+//random
 //buttons
 
 const mealName = document.querySelector('#dishName')
 const ingredientName = document.querySelector('#ingredientForm')
 const randomButton = document.querySelector('#random')
-
-function displayMeal(data){
-  console.log(data)
-  console.log(data.strMealThumb)
-  // const randomMealTitle = document.createElement('h1')
-  const randomMeal = document.querySelector('#randomMealContainer')
-  const ingredientsList= [data.meals[0]]
-  randomMeal.innerHTML = `<h1>${data.meals[0].strMeal}</h1>
-  <img src="${data.meals[0].strMealThumb}" alt="">
-  <h2>Ingredients:/h2>
-  <ul>dfdd</ul>
-  <ol>'saddfddf<ol>`
-//   // randomMealTitle.appendChild(randomMeal)
-//   // somevar.c
-  }
+//search by name of dish
 
 
-//ingredient button
+
+// get list of ingredients
+  function getIngredientsList(){}
+  // const ingredientsArray = []
+  // for (let i=1; i<=20; i++){
+  //   if(`data.meals[0].strIngredient${i}`){
+  //     ingredientsArray.push(data.meals[0].strIngredients[i])
+  //   }}
+  //loop through array and append to DOM
+  //object.values
+
+
+
+
+//search by main ingredient
 ingredientName.addEventListener('submit', (e) => {
-  console.log(e.target.value)
-  // const ingInput = e.target.value
-  // fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingInput}`)
+  e.preventDefault()
+  const input = e.target.children.ingredientInput.value
+  const thing = input.split(' ').join('_')
+  fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${thing}`)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(alert('no data found'))
 })
 
-//random button
+//get random meal
 randomButton.addEventListener('click', () => {
   fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-  .then(response => response.json())
-  .then(data => displayMeal(data))
+    .then(response => response.json())
+    .then(data => displayMeal(data))
 })
+function displayMeal(data){
+  const randomMeal = document.querySelector('#randomMealContainer')
+  randomMeal.innerHTML = `<h1>${data.meals[0].strMeal}</h1>
+  <img src="${data.meals[0].strMealThumb}" alt="food image">
+  <p></p>
+  <ul></ul>
+  <ol><ol>`}
