@@ -1,8 +1,3 @@
-//create fetch statements for:
-//meal by name
-//by main ingredient
-//random
-//buttons
 
 const mealName = document.querySelector('#dishName')
 const ingredientName = document.querySelector('#ingredientForm')
@@ -23,7 +18,6 @@ const randomButton = document.querySelector('#random')
 
 
 
-
 //search by main ingredient
 ingredientName.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -31,9 +25,31 @@ ingredientName.addEventListener('submit', (e) => {
   const thing = input.split(' ').join('_')
   fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${thing}`)
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(alert('no data found'))
+    // .then(data => console.log(data))
+    .then(data => displayListOfNames(data))
+    
 })
+
+//create helper function for 'search by main ingredient' that displays list of meals
+//and appends it to DOM
+function displayListOfNames(data){
+  const mealsList = document.querySelector('#mealsList')
+  const mealsListArr = data.meals
+  const newArr = []
+  for (let i=0; i<mealsListArr.length; i++){
+    newArr.push(mealsListArr[i].strMeal)
+  }
+  console.log(newArr)
+  
+  for (let i=0; i< newArr.length; i++){
+    const liElement = document.createElement('li')
+    liElement.textContent = newArr[i]
+    mealsList.append(liElement)
+  }
+}
+
+
+
 
 //get random meal
 randomButton.addEventListener('click', () => {
