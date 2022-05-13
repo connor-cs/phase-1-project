@@ -1,5 +1,5 @@
 body{
-background: #3E48A5
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
 }
 
 .button {
@@ -9,19 +9,18 @@ background: #3E48A5
 h1{
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: aliceblue;
+  color: rgb(5, 5, 121);
 }
 
 #section1 {
   display: block;
-  border: solid 5px;
   padding: 5px;
   padding-top: 8px;
   padding-bottom: 10px;
   margin: auto;
   text-align: center;
   width: 50%;
-  color: aliceblue;
+  color: rgb(5, 5, 121);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #results{
@@ -31,14 +30,14 @@ h1{
 
 #section2{
   display: block;
-  border: solid 5px red;
+  /* border: solid 5px red; */
   text-align: center;
-  color:aliceblue;
+  color: rgb(5, 5, 121);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #section3{
-  color: aliceblue;
-  border:solid 5px black;
+  color: rgb(5, 5, 121);
+  /* border:solid 5px black; */
   text-align: center;
   margin-top: 30px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
