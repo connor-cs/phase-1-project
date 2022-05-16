@@ -4,42 +4,47 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel = "stylesheet" href ="styles.css">
-  <script src ="./app.js" defer></script>
+  <link rel = "stylesheet" href ="./styles.css">
+  <script src ="./phase-1-project/app.js" defer></script>
   <title>Document</title>
 </head>
 <body>
-  <h1>FOOD APP</h1>
+  <h1>Food App</h1>
+  
   <div id ="section1">
-    <h3>What do you want to make?</h3>
-    <h4>Search by name of meal to return a list of ingredients and instructions</h4>
-    <form>
+    <h1>What would you like to eat?</h1>
+    <h2 id="firstH2" onmouseout=style="font-size:24px">Search by name of meal to return a list of ingredients and instructions</h2>
+    <form id="firstForm">
       <label for="mealSearch">Name of food:</label>
       <input type="text" id="dishName" placeholder="ex: alfredo">
       <input type="submit" class="button" value="submit">
     </form>
   </div>
   <container id="results" class="">
+    <h2 id ='name'></h2>
+    <img id="anImage">
     <ul id="ingredientList"></ul>
-    <ol id ="instructions"></ol>
-    <button type="button"><span class="like-glyph button">&#x2661;</span></button>
+    <p id ="instructions" style.></p>
+    <!-- <button type="button"><span class="like-glyph button">&#x2661;</span></button> -->
   </container>
+  
   <div id ="section2">
-    <h2>Or search for a dish by main ingredient:</h2>
+    <h2 id="secondH2" onmouseout=style="font-size:24px">Or search for a dish by main ingredient:</h2>
     <form id = 'ingredientForm'>
       <label for="ingredientSearch">Name of main ingredient:</label>
-      <input type="text" id="ingredientInput" placeholder="chicken breast">
+      <input type="text" id="ingredientInput" placeholder="">
       <input type="submit" class="button" value="submit">
     </form>
     <ul id="mealsList"></ul>
   </div>
+  
   <div id="section3">
-    <p>Click here to generate a random meal:</p>
+    <h2 id="thirdH2" onmouseout=style="font-size:24px">Click here to generate a random meal:</h2>
     <button type="button" id="random"class="button">Random</button>
     <div id="randomMealContainer">
-      <h1>Random meal</h1>
-      <img src="https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg" alt="">
-      <p>"Vegetarian"</p>
+      <h1 id="hoverElement" onmouseout=style="font-size:24px">Random meal</h1>
+      <img src="" alt="">
+      <p></p>
     </div>
   </div>
   
