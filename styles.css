@@ -1,5 +1,5 @@
 body{
-  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+  background-image: linear-gradient(to right, #833ab4, #fd1d1d);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -10,7 +10,15 @@ body{
 h1{
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: rgb(5, 5, 121);
+  color: rgb(57, 149, 224);
+}
+
+#firstH2{
+  border: solid rgba(243, 238, 231, 0.74);
+  /* background-color: rgba(90, 133, 134, 0.74); */
+  border-radius: 10px;
+  border-style: hidden;
+  padding: 5px
 }
 
 #section1 {
@@ -50,4 +58,8 @@ h1{
 
 #instructions{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#ingredientList{
+  list-style: none;
 }
