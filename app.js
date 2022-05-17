@@ -1,6 +1,6 @@
-
 const firstForm = document.querySelector('#firstForm')
 const ingredientName = document.querySelector('#ingredientForm')
+const ingredientsList = document.querySelector('#ingredientList')
 const randomButton = document.querySelector('#random')
 const makeItBigger = document.querySelector('#hoverElement')
 const firstH2 = document.querySelector('#firstH2')
@@ -13,7 +13,7 @@ firstForm.addEventListener('submit', (e) => {
   // console.log(e.target.children.dishName.value)
   const input = e.target.children.dishName.value
   const newVariable = input.split(' ').join('_')
-  
+
   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${newVariable}`)
     .then(response => response.json())
     .then(data => {
@@ -27,41 +27,59 @@ firstForm.addEventListener('submit', (e) => {
 
 //HELPER FUNCTIONS HELPER FUNCTIONS HELPER FUNCTIONS HELPER FUNCTIONS HELPER FUNCTIONS
 
-// // get list of ingredients
-function getIngredientsList(data){
+// get list of ingredients and measurements
+function getIngredientsList(data) {
   const ingredientsArray = []
+  const measurementsArray = []
   const obj = data.meals[0]
-  for (const key, const value in Object.entries(obj)){
-    ingredientsArray.push(key, value)
-  for (const element in obj){
-    if (element[3]=== 'I' && element[4]=== 'n' && element[5]=== 'g'){
-      ingredientsArray.push(element)
-      console.log(ingredientsArray)
+  console.log(Object.entries(obj))
+  for (const element of Object.entries(obj)) {
+    if (element[0][3] === 'I' && element[0][4] === 'n' && element[0][5] === 'g') {
+      if (element[1]) {
+        ingredientsArray.push(element[1])
+      }
     }
   }
-  // for (let i=1; i<=20; i++){
-  //   debugger
-  //     ingredientsArray.push(data.meals[0])
-  console.log(ingredientsArray)
+  for (const el of Object.entries(obj)) {
+    if (el[0][3] === 'M' && el[0][6] === 's') {
+      if (el[1]) {
+        measurementsArray.push(el[1])
+        console.log(measurementsArray)
+      }
     }
-   
-//   //loop through array and append to DOM
-//   //object.values
+  }
+  ingredientMeasure(ingredientsArray, measurementsArray)
+}
+
+//combine ingredients and measurements and append to DOM
+function ingredientMeasure(ingredients, measure) {
+  comboArray = ingredients.map((el, i) => el + ': ' + measure[i])
+  // const image = document.getElementById('anImage')
+  const title = document.createElement('h3')
+  title.textContent='Ingredients:'
+  for (const element of comboArray){
+    const lis = document.createElement('li')
+    ingredientsList.appendChild(lis).textContent=element
+  }
+  let parentNode = document.getElementById('results')
+  parentNode.insertBefore(title, ingredientsList)
+
+}
 
 //get instructions
-function getInstructions(data){
+function getInstructions(data) {
   const instructions = data.meals[0].strInstructions
   instructionsElement = document.querySelector('#instructions')
   instructionsElement.textContent = instructions
 }
 //get name
-function getMealName(data){
-  document.querySelector('#name').textContent=data.meals[0].strMeal
+function getMealName(data) {
+  document.querySelector('#name').textContent = data.meals[0].strMeal
 }
 //get picture
-function getPicture(data){
-  imageElement=document.querySelector('#anImage')
-  imageElement.src=data.meals[0].strMealThumb
+function getPicture(data) {
+  imageElement = document.querySelector('#anImage')
+  imageElement.src = data.meals[0].strMealThumb
 }
 
 
@@ -73,19 +91,19 @@ ingredientName.addEventListener('submit', (e) => {
   const thing = input.split(' ').join('_')
   fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${thing}`)
     .then(response => response.json())
-    .then(data => displayListOfNames(data))  
+    .then(data => displayListOfNames(data))
 })
 
 //create helper function for 'search by main ingredient' that displays list of meals
 //and appends it to DOM
-function displayListOfNames(data){
+function displayListOfNames(data) {
   const mealsList = document.querySelector('#mealsList')
   const mealsListArr = data.meals
   const newArr = []
-  for (let i=0; i<mealsListArr.length; i++){
+  for (let i = 0; i < mealsListArr.length; i++) {
     newArr.push(mealsListArr[i].strMeal)
-  } 
-  for (let i=0; i< newArr.length; i++){
+  }
+  for (let i = 0; i < newArr.length; i++) {
     const liElement = document.createElement('li')
     liElement.textContent = newArr[i]
     mealsList.append(liElement)
@@ -101,35 +119,37 @@ randomButton.addEventListener('click', () => {
 })
 
 //display random meal
-function displayMeal(data){
+function displayMeal(data) {
   const randomMeal = document.querySelector('#randomMealContainer')
   randomMeal.innerHTML = `<h1>${data.meals[0].strMeal}</h1>
-  <img src="${data.meals[0].strMealThumb}" alt="food image">`}
+  <img src="${data.meals[0].strMealThumb}" alt="food image">`
+}
 
-  
-  
+
+
 //bigger and smaller
-  makeItBigger.addEventListener('mouseenter', (e) => {
-    e.target.style.fontSize= "50px"
-  })
-  firstH2.addEventListener('mouseenter', (e)=>{
-    e.target.style.fontSize="30px"
-    
-  })
-  secondH2.addEventListener('mouseenter', (e)=>{
-    e.target.style.fontSize="30px"
-  })
-  thirdH2.addEventListener('mouseenter', (e)=>{
-    e.target.style.fontSize="40px"
-  })
+makeItBigger.addEventListener('mouseenter', (e) => {
+  e.target.style.fontSize = "50px"
+})
 
-  //why these don't work?:
-  firstH2.addEventListener('mouseleave', (e) =>{
-    e.target.style.fontsize="26px"
-  })
-  secondH2.addEventListener('mouseleave', (e) =>{
-    e.target.style.fontsize="26px"
-  })
-  thirdH2.addEventListener('mouseleave', (e) =>{
-    e.target.style.fontsize="26px"
-  })
+//turning this off because it is really annoying
+// firstH2.addEventListener('mouseenter', (e) => {
+//   e.target.style.fontSize = "30px"
+// })
+secondH2.addEventListener('mouseenter', (e) => {
+  e.target.style.fontSize = "30px"
+})
+thirdH2.addEventListener('mouseenter', (e) => {
+  e.target.style.fontSize = "26px"
+})
+
+//why these don't work?:
+firstH2.addEventListener('mouseleave', (e) => {
+  e.target.style.fontsize = "26px"
+})
+secondH2.addEventListener('mouseleave', (e) => {
+  e.target.style.fontsize = "26px"
+})
+thirdH2.addEventListener('mouseleave', (e) => {
+  e.target.style.fontsize = "26px"
+})
