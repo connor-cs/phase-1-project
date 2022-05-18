@@ -6,6 +6,9 @@ const makeItBigger = document.querySelector('#hoverElement')
 const firstH2 = document.querySelector('#firstH2')
 const secondH2 = document.querySelector('#secondH2')
 const thirdH2 = document.querySelector('#thirdH2')
+const likeButton = document.getElementById('likeButton')
+const empty_heart = '♡'
+const full_heart = '♥'
 
 //search by name of dish
 firstForm.addEventListener('submit', (e) => {
@@ -32,7 +35,7 @@ function getIngredientsList(data) {
   const ingredientsArray = []
   const measurementsArray = []
   const obj = data.meals[0]
-  console.log(Object.entries(obj))
+  // console.log(Object.entries(obj))
   for (const element of Object.entries(obj)) {
     if (element[0][3] === 'I' && element[0][4] === 'n' && element[0][5] === 'g') {
       if (element[1]) {
@@ -44,7 +47,7 @@ function getIngredientsList(data) {
     if (el[0][3] === 'M' && el[0][6] === 's') {
       if (el[1]) {
         measurementsArray.push(el[1])
-        console.log(measurementsArray)
+        //console.log(measurementsArray)
       }
     }
   }
@@ -109,6 +112,19 @@ function displayListOfNames(data) {
     mealsList.append(liElement)
   }
 }
+
+//like button
+likeButton.addEventListener('click', ()=> {
+  if(likeButton.textContent=empty_heart){
+    likeButton.textContent=full_heart
+    likeButton.classList.add('fullHeart')
+  }
+  else{
+    likeButton.textContent=empty_heart
+    likeButton.classList.remove('fullHeart')
+    likeButton.classList.add('emptyHeart')
+  }
+})
 
 
 //get random meal
