@@ -35,6 +35,18 @@ h1{
 #results{
   display: block;
   text-align: center;
+  color:azure;
+}
+/* #results:empty{
+  display: none
+} */
+
+.emptyHeart{
+  color: grey;
+}
+.fullHeart{
+  color:#fd1d1d;
+  font-size: 20px;
 }
 
 #section2{
