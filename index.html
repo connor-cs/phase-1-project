@@ -19,7 +19,7 @@
     <h2 id="firstH2" onmouseout=style="font-size:24px">Search by name to return a list of ingredients and instructions</h2>
     <form id="firstForm">
       <label for="mealSearch">Name of food:</label>
-      <input type="text" id="dishName" placeholder="ex: alfredo">
+      <input type="text" id="dishName" placeholder="ex: 'alfredo'">
       <input type="submit" class= 'btn-primary' value="submit">
     </form>
   </div>
@@ -28,14 +28,14 @@
     <img class = "img-rounded " id="anImage">
     <ul id="ingredientList"></ul>
     <p id ="instructions" style.></p>
-    <!-- <button type="button"><span class="like-glyph button">&#x2661;</span></button> -->
+    <button id='likeButton' type="button"><span class="like-glyph button btn-basic">&#x2661;</span></button>
   </container>
   
   <div id ="section2">
     <h2 id="secondH2" onmouseout=style="font-size:24px">Or search for a dish by main ingredient:</h2>
     <form id = 'ingredientForm'>
       <label for="ingredientSearch">Name of main ingredient:</label>
-      <input type="text" id="ingredientInput" placeholder="">
+      <input type="text" id="ingredientInput" placeholder="ex: 'chicken breast'">
       <input type="submit" class="button btn-primary" value="submit">
     </form>
     <ul id="mealsList"></ul>
