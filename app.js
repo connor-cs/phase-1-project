@@ -10,6 +10,13 @@ const likeButton = document.getElementById('likeButton')
 const empty_heart = '♡'
 const full_heart = '♥'
 
+//image is hosted locally so leave this off and keep background as gradient
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.body.style.backgroundImage="url(images/pI06OES.png)"
+
+// })
+
+
 //search by name of dish
 firstForm.addEventListener('submit', (e) => {
   e.preventDefault()
