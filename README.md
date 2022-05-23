@@ -7,9 +7,9 @@
 2. Search using an ingredient as a keyword returning a list of meals that use that ingredient
 3. Click a button to return a random meal that includes a picture and a name
 
-<p>There is an additional "like" button in the shape of a heart that provides some interactivity.
+<p>There is an additional "like" button in the shape of a heart that provides some interactivity. </p>
 I started with the temporary working title of "Food App" but ultimately didn't come up with anything more creative.
-The API used: https://www.themealdb.com/api.php </p>
+The API used: https://www.themealdb.com/api.php 
 
 ## The event listeners used:
 - submit
