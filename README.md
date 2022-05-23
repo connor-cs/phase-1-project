@@ -1,5 +1,5 @@
 
-# phase-1-project
+# Phase One Project
 
 ### My project is a single-page "application" that uses a database of recipes/meals/foods to allow a hypothetical user to perform the following functions:
 
