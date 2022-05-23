@@ -1,7 +1,7 @@
 
 # Phase One Project
 
-### My project is a single-page "application" that uses a database of recipes/meals/foods to allow a hypothetical user to perform the following functions:
+### This is my first JavaScript project. It is a single-page "application" that uses a database of recipes/meals/foods to allow a hypothetical user to perform the following functions:
 
 1. Search for a particual food by name, and receive a picture, a list of indgredients, and directions on how to make it
 2. Search using an ingredient as a keyword returning a list of meals that use that ingredient
