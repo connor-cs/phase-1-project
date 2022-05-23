@@ -18,7 +18,8 @@ The API used: https://www.themealdb.com/api.php
 - hover/mouseenter
 
 ## Ideas for improvement:
-- Better styling, it's pretty basic. Tried tinkering with it a bit by experimenting with different color pallettes using https://coolors.co/palettes as well as different backgrounds but none of the changes really seemed to be much of an improvement, nor did it help much with the "basic" look.
+- Better styling, it's pretty basic. Tried experimenting with different color pallettes using https://coolors.co/palettes as well as different backgrounds but none of the changes really seemed to be much of an improvement, nor did it help much with the "basic" look.
+- Make some sections have a different background/styling when populated, but hidden when unpopulated. I think this would make it seem a bit more dynamic.
 - Being able to "unlike" the like button with a click.
 - Why did the .reset() method break my forms?
 - I tried making a helper function that took a parent and child node as parameters and appended the child to the parent; couldn't get that to work. Maybe this is just unneccessary anyway.
