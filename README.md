@@ -1,7 +1,7 @@
 
 # phase-1-project
 
-## My project is a single-page "application" that uses a database of recipes/meals/foods to allow a hypothetical user to perform the following functions:
+### My project is a single-page "application" that uses a database of recipes/meals/foods to allow a hypothetical user to perform the following functions:
 
 1. Search for a particual food by name, and receive a picture, a list of indgredients, and directions on how to make it
 2. Search using an ingredient as a keyword returning a list of meals that use that ingredient
@@ -12,9 +12,9 @@ I started with the temporary working title of "Food App" but ultimately didn't c
 The API used: https://www.themealdb.com/api.php
 
 ## The event listeners used:
--submit
--click
--hover/mouseenter
+- submit
+- click
+- hover/mouseenter
 
 ## Ideas for improvement:
 - Better styling, it's pretty basic. Tried tinkering with it a bit by experimenting with different color pallettes using https://coolors.co/palettes as well as different backgrounds but none of the changes really seemed to be much of an improvement, nor did it help much with the "basic" look
